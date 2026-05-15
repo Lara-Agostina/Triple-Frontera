@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triple Frontera | Manifiesto Esmeralda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;700;900&family=Baskervville:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #051205; 
+            --accent: #b3914d;
+            --text-color: #f0ede6;
+            --deep-green: #0a1f0a;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .serif {
+            font-family: 'Baskervville', serif;
+        }
+
+        /* Tipografía Gigante Responsiva */
+        .big-text {
+            font-size: clamp(3.5rem, 18vw, 15rem);
+            line-height: 0.8;
+            letter-spacing: -0.05em;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        /* Animación de Flotación Dinámica */
+        @keyframes floating {
+            0% { transform: translateY(0px) rotate(-1deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(-1deg); }
+        }
+
+        .floating-package {
+            animation: floating 6s ease-in-out infinite;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.8));
+        }
+
+        /* Scroll Horizontal Minimalista (Sin Imágenes) */
+        .horizontal-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .horizontal-scroll::-webkit-scrollbar { display: none; }
+        
+        .snap-item {
+            scroll-snap-align: start;
+            flex: 0 0 100%;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            border-left: 1px solid rgba(179, 145, 77, 0.1);
+        }
+
+        @media (min-width: 768px) {
+            .snap-item { flex: 0 0 50vw; min-height: 80vh; }
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .outline-text {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(179, 145, 77, 0.4);
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(5,18,5,0.4) 0%, rgba(5,18,5,0.9) 100%);
+        }
+
+        .step-number {
+            font-size: clamp(5rem, 15vw, 12rem);
+            line-height: 1;
+            opacity: 0.1;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navegación -->
+    <nav class="fixed top-0 left-0 w-full z-[100] px-6 py-6 md:py-10 flex justify-between items-center mix-blend-difference">
+        <span class="text-xl font-black tracking-tighter text-accent">TF.</span>
+        <div class="hidden md:flex gap-12 text-[10px] font-bold uppercase tracking-[0.4em]">
+            <a href="#origen" class="hover:text-accent transition">El Origen</a>
+            <a href="#ritual" class="hover:text-accent transition">El Ritual</a>
+        </div>
+        <span class="text-[9px] font-bold border border-accent/40 px-4 py-1.5 rounded-full text-accent tracking-widest uppercase">Reserva Privada</span>
+    </nav>
+
+    <!-- HERO: PORTADA ESMERALDA DINÁMICA -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4">
+        <!-- Fondo de Portada -->
+        <div class="absolute inset-0 z-0">
+            <img src="portada yerba mate.png" class="w-full h-full object-cover opacity-50 scale-105">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <!-- Títulos con Jerarquía Mejorada -->
+        <div class="relative z-10 flex flex-col items-center justify-center text-center w-full mb-[-10vh] md:mb-[-15vh]">
+            <h1 class="big-text outline-text opacity-50">Triple</h1>
+            <h1 class="big-text text-white/95 mt-[-1rem] md:mt-[-4rem]">Frontera</h1>
+        </div>
+
+        <!-- Paquete Flotante (Debajo del texto o integrado) -->
+        <div class="relative z-20 reveal-up active mt-4 md:mt-8">
+            <img src="paquete.png"
+                 class="h-[40vh] md:h-[55vh] lg:h-[65vh] object-contain floating-package" 
+                 alt="Producto Triple Frontera">
+        </div>
+
+        <!-- Detalles de Portada -->
+        <div class="absolute bottom-12 w-full px-8 md:px-16 flex flex-col md:flex-row justify-between items-center md:items-end gap-8 z-30">
+            <div class="text-center md:text-left max-w-xs">
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-accent mb-3 block">Legado Natural</span>
+                <p class="text-[10px] md:text-[11px] leading-relaxed opacity-50 uppercase tracking-[0.3em]">
+                    Cosecha seleccionada en el corazón de Misiones. 24 meses de estacionamiento.
+                </p>
+            </div>
+            <div class="text-center md:text-right">
+                <span class="serif italic text-4xl md:text-6xl block text-accent mb-1">Materia</span>
+                <span class="text-[9px] uppercase tracking-[0.6em] opacity-40">Argentina • Original</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN ORIGEN (Verde Continuo) -->
+    <section id="origen" class="relative py-32 md:py-64 px-6 lg:px-24">
+        <div class="max-w-[1400px] mx-auto grid lg:grid-cols-2 gap-20 md:gap-32 items-center">
+            <div class="reveal-up order-2 lg:order-1">
+                <span class="text-accent text-[10px] font-black uppercase tracking-[0.6em] mb-8 block">Capítulo I</span>
+                <h2 class="text-5xl md:text-8xl font-black mb-10 leading-none uppercase">
+                    El Monte <br><span class="serif italic text-accent font-normal lowercase tracking-normal">en su tiempo.</span>
+                </h2>
+                <div class="h-[1px] w-24 bg-accent/30 mb-10"></div>
+                <p class="text-stone-400 text-base md:text-xl leading-loose font-light max-w-md">
+                    No intervenimos en el proceso. Solo observamos cómo la naturaleza transforma la hoja verde en una experiencia profunda, equilibrada y persistente.
+                </p>
+            </div>
+            <div class="reveal-up relative order-1 lg:order-2">
+                <div class="border border-accent/20 p-2 md:p-6 bg-deep-green shadow-3xl">
+                    <img src="paquete yerba mate.png" 
+                         class="w-full h-[50vh] md:h-[75vh] object-cover grayscale hover:grayscale-0 transition-all duration-[2s] scale-100 hover:scale-105" 
+                         alt="El Ritual">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RITUAL TIPOGRÁFICO (Sin Imágenes - Todo Verde) -->
+    <section id="ritual" class="bg-deep-green py-32 md:py-48 overflow-hidden">
+        <div class="px-6 lg:px-24 mb-24 flex flex-col md:flex-row justify-between items-center md:items-end gap-6">
+            <div class="text-center md:text-left">
+                <h3 class="text-[10px] font-black uppercase tracking-[1em] mb-4 text-accent/50">Instrucciones</h3>
+                <h2 class="text-5xl md:text-8xl font-black uppercase italic leading-none">El Ritual.</h2>
+            </div>
+            <p class="text-[10px] font-bold uppercase tracking-[0.4em] opacity-40 text-center md:text-right max-w-[200px]">
+                Deslice horizontalmente la técnica maestra.
+            </p>
+        </div>
+
+        <div class="horizontal-scroll">
+            <!-- Paso 1 -->
+            <div class="snap-item relative overflow-hidden">
+                <div class="max-w-xl relative z-10">
+                    <span class="step-number serif italic text-accent">01</span>
+                    <h4 class="text-3xl md:text-5xl font-black mb-8 uppercase tracking-tighter text-accent">La Estructura</h4>
+                    <p class="text-stone-300 leading-loose font-light text-lg">
+                        Incline el recipiente hasta que la yerba forme una montaña compacta sobre un lateral. Este ángulo de 45° protege la hoja y asegura que el sabor no se agote en las primeras cebadas.
+                    </p>
+                    <div class="mt-12 h-[1px] w-12 bg-accent/50"></div>
+                </div>
+            </div>
+
+            <!-- Paso 2 -->
+            <div class="snap-item relative overflow-hidden">
+                <div class="max-w-xl relative z-10">
+                    <span class="step-number serif italic text-accent">02</span>
+                    <h4 class="text-3xl md:text-5xl font-black mb-8 uppercase tracking-tighter text-accent">El Despertar</h4>
+                    <p class="text-stone-300 leading-loose font-light text-lg">
+                        Vierta un poco de agua tibia en el vacío inferior. Deje que la yerba absorba la humedad y se expanda durante un minuto. Este paso elimina la acidez excesiva y abre el aroma.
+                    </p>
+                    <div class="mt-12 h-[1px] w-12 bg-accent/50"></div>
+                </div>
+            </div>
+
+            <!-- Paso 3 -->
+            <div class="snap-item relative overflow-hidden">
+                <div class="max-w-xl relative z-10">
+                    <span class="step-number serif italic text-accent">03</span>
+                    <h4 class="text-3xl md:text-5xl font-black mb-8 uppercase tracking-tighter text-accent">La Infusión</h4>
+                    <p class="text-stone-300 leading-loose font-light text-lg">
+                        Agregue agua a 75°C de forma rítmica. Mantenga la parte superior de la montaña seca. Es el aroma de la hoja seca el que envuelve cada sorbo, creando una experiencia infinita.
+                    </p>
+                    <div class="mt-12 h-[1px] w-12 bg-accent/50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER: MANIFIESTO FINAL -->
+    <footer class="py-32 md:py-48 px-6 bg-black flex flex-col items-center">
+        <div class="reveal-up text-center mb-32">
+            <img src="logo.png" class="h-16 md:h-20 mx-auto mb-16 opacity-30 grayscale invert">
+            <h2 class="big-text outline-text opacity-10">Triple</h2>
+            <h2 class="big-text opacity-70">Frontera</h2>
+            <p class="serif italic text-2xl md:text-4xl text-accent mt-8 font-light">Tierra, tiempo y silencio.</p>
+        </div>
+
+        <div class="max-w-[1400px] w-full grid md:grid-cols-3 gap-16 text-center md:text-left pt-20 border-t border-white/5 reveal-up">
+            <div>
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-accent block mb-6">Ubicación</span>
+                <p class="text-stone-500 text-[10px] tracking-widest uppercase"><br>República Argentina</p>
+            </div>
+            <div class="md:text-center">
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-accent block mb-6 italic">Producción Limitada</span>
+                <p class="text-[9px] text-stone-700 uppercase tracking-widest font-bold">24 Meses de Estacionamiento Natural</p>
+            </div>
+            <div class="md:text-right">
+                <span class="text-[10px] font-black uppercase tracking-[0.5em] text-accent block mb-6">Conectar</span>
+                <p class="text-stone-500 text-[10px] tracking-[0.4em] uppercase">Instagram / Facebook</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animaciones al hacer scroll
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-up').forEach(el => revealObserver.observe(el));
+
+        // Iniciar animaciones de entrada
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('hero-package')?.classList.add('active');
+            }, 300);
+        });
+    </script>
+</body>
+</html>
